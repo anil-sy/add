@@ -31,7 +31,7 @@ pipeline {
 
           
         }
-	    ge('print message') {
+	    stage('print message') {
             steps {
                
                 // Run Maven on a Unix agent.
