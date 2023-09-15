@@ -31,6 +31,18 @@ pipeline {
 
           
         }
+	    ge('print message') {
+            steps {
+               
+                // Run Maven on a Unix agent.
+		echo "done"
+                sh "mvn clean install"
+
+               
+            }
+
+          
+        }
 		stage('package') {
             steps {
                
