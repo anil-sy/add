@@ -9,13 +9,6 @@ pipeline {
     }
 
     stages {
-		stage('Scm-checkout') {
-			steps {
-				
-				git 'https://github.com/anil-sy/add.git'
-				}
-			}
-			
 		 stage('compile') {
             steps {
                
