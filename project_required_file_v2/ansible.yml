@@ -2,14 +2,14 @@
 - hosts: testnodes
   become: yes
   tasks:
-    - name: Build an image and push it to a private repo
-       community.docker.docker_image:
-       build:
-       path: "/home/devopsadmin/Desktop"
-       name: docker.io/sy007/abctechnologies
-       push: true
-       source: build
-       register: out
+   - name: Build an image and push it to a private repo
+      community.docker.docker_image:
+      build:
+      path: "/home/devopsadmin/Desktop"
+      name: docker.io/sy007/abctechnologies
+      push: true
+      source: build
+      register: out
 
     - debug:
         var: out
