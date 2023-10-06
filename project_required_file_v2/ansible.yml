@@ -2,7 +2,7 @@
   become: yes
   tasks:
         - name: Build an image and push it to a private repo
-          community.docker.docker_image:
+         community.docker.docker_image:
          build:
          path: "/home/devopsadmin/Desktop"
          name: docker.io/anilkumarsy/abctechnologies
