@@ -4,17 +4,17 @@
         - name: Build an image and push it to a private repo
           community.docker.docker_image:
               build:
-                  path: "/home/devopsadmin/Desktop"
+              path: "/home/devopsadmin/Desktop"
               name: docker.io/anilkumarsy/abctechnologies
               #tag: test
               push: true
               source: build
-          register: out
+			        register: out
         - debug:
               var: out  
         - name: start a container
           community.docker.docker_container:
-             name: abc-application
+			  name: abc-application
              image: anilkumarsy/abctechnologies
              state: started
              ports:
@@ -25,8 +25,7 @@
               var: out
              #- name: Deploying to kubernetes
         - name: Create a Deployment by reading the definition from a local file 
-          command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/devopsadmin/Desktop/deployment.yml"    
+           command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/devopsadmin/Desktop/deployment.yml"    
           register: out
         - debug:
-              var: out
-              
+               var: out
