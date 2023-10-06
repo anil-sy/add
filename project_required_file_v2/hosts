@@ -1,3 +1,2 @@
 [testnodes]
-samplenode1 ansible_ssh_host=172.31.38.238 ansible_ssh_user=devopsadmin
-samplenode2 ansible_ssh_host=172.31.47.117 ansible_ssh_user=ansibleadmin
+testnodes ansible_python_interpreter="/usr/bin/python3.8"
