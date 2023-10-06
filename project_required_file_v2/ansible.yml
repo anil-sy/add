@@ -14,18 +14,18 @@
               var: out  
         - name: start a container
           community.docker.docker_container:
-	     name: abc-application
-             image: anilkumarsy/abctechnologies
-             state: started
-             ports:
+	      name: abc-application
+              image: anilkumarsy/abctechnologies
+              state: started
+              ports:
                  - 1234:8080
              #restart: true
-             register: out
+              register: out
         - debug:
               var: out
              #- name: Deploying to kubernetes
         - name: Create a Deployment by reading the definition from a local file 
-           command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/devopsadmin/Desktop/deployment.yml"    
-           register: out
+              command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/devopsadmin/Desktop/deployment.yml"    
+              register: out
         - debug:
-               var: out
+              var: out
