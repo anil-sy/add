@@ -1,31 +1,31 @@
 - hosts: localhost
   become: yes
   tasks:
-     - name: Build an image and push it to a private repo
-       community.docker.docker_image:
+      - name: Build an image and push it to a private repo
+        community.docker.docker_image:
            build:
              path: "/home/devopsadmin/"
            name: docker.io/sy007/abctechnologies
            #tag: test
            push: true
            source: build
-       register: out
-     - debug:
+        register: out
+      - debug:
           var: out  
-     - name: start a container
-       community.docker.docker_container:
+      - name: start a container
+        community.docker.docker_container:
            name: abc-application
            image: sy007/abctechnologies
            state: started
            ports:
                  - 1234:8080
            #restart: true
-       register: out
-     - debug:
+        register: out
+      - debug:
           var: out
           #- name: Deploying to kubernetes
-     - name: Create a Deployment by reading the definition from a local file 
-       command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/devopsadmin/deployment.yml"    
-       register: out
-     - debug:
+      - name: Create a Deployment by reading the definition from a local file 
+        command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/devopsadmin/deployment.yml"    
+        register: out
+      - debug:
           var: out
