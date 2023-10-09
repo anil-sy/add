@@ -28,7 +28,7 @@
      - name: Create a Deployment by reading the definition from a local file
        command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f
                  /home/devopsadmin/deployment.yml"
-	     register: out
+       register: out
      - debug:
          var: out
 
