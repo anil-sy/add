@@ -8,7 +8,7 @@
              path: "/home/devopsadmin"
           name: docker.io/sy007/abctechnologies
           #tag: test
-	  push: true
+          push: true
           source: build
        register: out
      - debug:
@@ -19,7 +19,7 @@
           image: sy007/abctechnologies
           state: started
           ports:
-             - 1234:8080
+                 - 1234:8080
           #restart: true
        register: out
      - debug:
@@ -31,4 +31,3 @@
        register: out
      - debug:
          var: out
-
