@@ -27,9 +27,9 @@
         var: out
 
    - name: Create a Deployment by reading the definition from a local file
-      command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/devopsadmin/deployment.yml"
-      register: out
+     command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/devopsadmin/deployment.yml"
+     register: out
 
-    - debug:
-        var: out
+   - debug:
+       var: out
 ---
