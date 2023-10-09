@@ -3,31 +3,33 @@
   become: yes
   tasks:
    - name: Build an image and push it to a private repo
-      community.docker.docker_image: build
-      path: "/home/devopsadmin/Desktop"
+     community.docker.docker_image:
+      build:
+        path: "/home/devopsadmin/Desktop"
       name: docker.io/sy007/abctechnologies
       push: true
       source: build
-      register: out
+     register: out
 
-    - debug:
+   - debug:
         var: out
 
-    - name: Start a container
-      community.docker.docker_container:
+   - name: Start a container
+     community.docker.docker_container:
         name: abc-application
         image: sy007/abctechnologies
         state: started
         ports:
           - "1234:8080"
+     register: out
+
+   - debug:
+        var: out
+
+   - name: Create a Deployment by reading the definition from a local file
+      command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/devopsadmin/deployment.yml"
       register: out
 
     - debug:
         var: out
-
-    - name: Create a Deployment by reading the definition from a local file
-      command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/devopsadmin/Desktop/deployment.yml"
-      register: out
-
-    - debug:
-        var: out
+---
