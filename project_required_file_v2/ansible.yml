@@ -8,7 +8,7 @@
              path: "/home/devopsadmin"
           name: docker.io/sy007/abctechnologies
           #tag: test
-		      push: true
+	  push: true
           source: build
        register: out
      - debug:
@@ -31,4 +31,4 @@
 	     register: out
      - debug:
          var: out
----
+
